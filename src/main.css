@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+:root {
+    --text-color: #c2f6f7;
+    --neon-color: #43A4D6;
+    --neon-text-color: #f40;
+    --neon-border-color: #08f;
+}
+
+.title {
+    font-family: 'Exo 2', sans-serif;
+    font-style: italic;
+    margin: 30px;
+    font-size: 100px;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+    border: 0.4rem solid #fff;
+    text-transform: uppercase;
+    animation: flicker 10s infinite alternate;
+}
+
+
+.title::-moz-selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+.title::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+.title:focus {
+    outline: none;
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+
+body {
+    margin: 0;
+    background: #01002b;
+    background-image: url("../img/desktop-1920x1080.jpg");
+    background-size: 1400px;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    padding: 24px;
+    gap: 24px;
+}
+
+.note {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 26.5px;
+    height: 200px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 16px;
+    /* border: none; */
+    border-radius: 10px;
+    /* box-shadow: 0 0 7px rgba(0, 0, 0, 0.15); */
+    resize: none;
+    color: var(--text-color);
+    text-shadow: 0 0 1px var(--text-color), 0 0 3px var(--text-color), 0px 0px 6px var(--neon-color), 0 0 10px var(--neon-color), 0 0 30px var(--neon-color), 0 0 50px var(--neon-color), 0 0 70px var(--neon-color), 0 0 100px var(--neon-color), 0 0 150px var(--neon-color), 0 0 200px var(--neon-color), 0 15px 5px #000;
+    background-color: transparent;
+    box-shadow: 0 0 5px var(--neon-color), inset 0 0 5px var(--neon-color), 0 0 10px var(--neon-color), inset 0 0 10px var(--neon-color), 0 0 25px var(--neon-color), inset 0 0 25px var(--neon-color), 0 15px 3px #000;
+    border: 3px solid var(--text-color);
+
+}
+
+.add-note {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    border: #8d8d907b 3px solid;
+    border-radius: 10px;
+    font-size: 70px;
+    color: #8d8d907b;
+}
+
+.add-note:hover {
+    background: rgba(250, 247, 247, 0.078);
+}
+
+.note {
+    animation: fadein 1s ease-out forwards;
+}
+
+/* フェードインアニメ */
+@keyframes fadein {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.note {
+    will-change: animation;
+}
+
+.title {
+    will-change: animation;
+}
+
+footer {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.logo {
+    padding-right: 30px;
+}
